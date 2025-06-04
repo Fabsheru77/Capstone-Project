@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+        /* General styling for the form container */
+        h1 {
+            text-align: center;
+            background-color: hwb(115 7% 16%);
+        }
+        header {
+    background-color: black; /* Dark green background for the header */
+    padding: 1px; /* Adds spacing around the header content */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around; /* Evenly distribute nav items */
+    align-items: center;
+}
+
+header nav a {
+    color: white; /* White text color for nav links */
+    text-decoration: none; /* Removes underline from links */
+    padding: 5px 10px; /* Adds padding inside each nav link */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+header nav a:hover {
+    background-color: #006600; /* Slightly lighter green on hover */
+    border-radius: 3px; /* Rounds the corners on hover */
+}
+
+.topnav .icon {
+    display: none; /* Hide the menu icon by default */
+}
+
+        .form-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 10px;
+        }
+
+        /* Styling for the form */
+        .main-form {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        /* Styling for input fields */
+        .main-form input[type="text"],
+        .main-form input[type="submit"] {
+            width: 100%;
+            padding: 2px;
+            margin: 2px 0;
+            box-sizing: border-box;
+            font-size: .8em;
+       }
+
+        /* Submit button styling */
+        .main-form input[type="submit"] {
+            background-color: whitesmoke;
+            color:black;
+            cursor: pointer;
+        }
+
+        /* Styling for the moving text */
+        #movingText {
+            background-color: rgb(9, 255, 0);
+            position: absolute;
+            white-space: nowrap;
+            font-size: 35px;
+            font-family: Arial, sans-serif;
+            color: hwb(0 0% 100%);
+            animation: moveText 10s linear infinite;
+        }
+
+        /* Keyframes for text movement */
+        @keyframes moveText {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .main-form {
+            flex: 1;
+        }
+
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-image, .form-video {
+            width: 480%;
+            max-width: 500px;
+            height: auto;
+            margin-left: 60%;
+        }
+        
+        /* Media container styling */
+        .media-container img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            display: flex;
+            margin-right: 1%;
+            padding-left: 10;
+        }
+
+        /* Submitted info image styling */
+        .submitted-info img {
+            width: 50%;
+            max-width: 300px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .submitted-info-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .submitted-info {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            background-color: aquamarine;
+            font-size: 22.5px;
+            font-family: Arial, sans-serif;
+            color: black;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--h1>LOG IN TO PROPERTY MANAGER</h1-->
+    <header>
+          <nav class="topnav" id="myTopnav">
+           <a href="index.html" target="_blank">Home</a>
+           <a href="loginForms.html" target="_blank">Login</a>
+           <a href="paymentGateway.html" target="_blank">Payment Gateway</a>
+           <a href="Small_Meeting_Space.html" target="_blank">Small Meeting Space</a>
+           <a href="Solo_Worker_Space.html" target="_blank">Solo Worker Space</a>
+           <a href="Short_Term_and_Extended_Stay.html" target="_blank">Short Term and Extended Stay</a>
+           <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+           </nav>
+        </header>
+    <!--a href="https://www.corporatehousingbyowner.com/properties/28396/" target="_blank">
+        CLICK-LINK Link</a><br></br-->
+    <div id="movingText">WELCOME TO SEATTLE LUXURY HOUSES!</div>
+
+    <div class="form-container">
+        <form method="POST" class="main-form" id="bookingForm">
+            <label for="Booking">Booking Reference Number</label><br>
+            <input type="text" name="Booking" id="Booking" placeholder="Booking" required autofocus><br>
+
+            <label for="RoomNumber">Room Number</label><br>
+            <input type="text" name="Room_Number" id="RoomNumber" placeholder="Room Number" required><br>
+
+            <label for="FullName">Full Name</label><br>
+            <input type="text" name="Full_Name" id="FullName" placeholder="Full Name" required><br>
+
+            <label for="Address">Address</label><br>
+            <input type="text" name="Address" id="Address" placeholder="Address" required><br>
+
+            <label for="City">City</label><br>
+            <input type="text" name="City" id="City" placeholder="City" required><br>
+
+            <label for="State">State</label><br>
+            <input type="text" name="State" id="State" placeholder="State" required><br>
+
+            <label for="Zip_code">Zip Code</label><br>
+            <input type="text" name="Zip_code" id="ZipCode" placeholder="Zip Code" required><br>
+
+            <label for="EmailAddress">Email Address</label><br>
+            <input type="text" name="Email_Address" id="EmailAddress" placeholder="Email Address" required><br>
+
+            <input type="submit" value="Submit"><br>
+        </form>
+        
+        <img src="Login Page.jpg" alt="Rental Office" style="width:70%"><br>
+        <!--img src="Login Page.jpg" alt="Rental Office" -->
+        
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Handle form submission
+            const formData = new FormData(event.target);
+            const submittedInfoDiv = document.getElementById('submittedInfo');
+
+            submittedInfoDiv.innerHTML = '<h2>Submitted Information</h2>';
+            formData.forEach((value, key) => {
+                submittedInfoDiv.innerHTML += `<p><strong>${key.replace('_', ' ')}:</strong> ${value}</p>`;
+            });
+        });
+    </script>
+
+    <div class="submitted-info-container">
+        <div class="submitted-info" id="submittedInfo"></div>
+        <a href= "https://www.corporatehousingbyowner.com/properties/28396/"target="blank">CLICK-LINK</a><br>
+        <!--img src="formsPage.jpg" alt="Rental Office" id="infoImage"-->
+        <img src="formsPage.jpg" alt="Rental Office" style="width:70%"><br></br>
+    </div>
+</body>
+</html>
